@@ -1,0 +1,18 @@
+stages:
+  train_model:
+    cmd: python src/models/train_model.py
+    deps:
+    - src/models/train_model.py
+    - data/processed/train.csv
+    - data/processed/test.csv
+    outs:
+    - models
+    - metrics/scores.csv
+  split_data:
+    cmd: python src/data/split_data.py
+    deps:
+    - data/raw/spam.csv
+    - src/data/split_data.py
+    outs:
+    - data/processed/test.csv
+    - data/processed/train.csv

@@ -1,0 +1,47 @@
+schema: '2.0'
+stages:
+  split_data:
+    cmd: python src/data/split_data.py
+    deps:
+    - path: data/raw/spam.csv
+      hash: md5
+      md5: 008dcf9ca6aab621d3b3831db6815867
+      size: 503663
+    - path: src/data/split_data.py
+      hash: md5
+      md5: 16eac1a6b6623284fc6e687b1d85a68f
+      size: 592
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 389e1c6fe3d5bb6854a47fce671164af
+      size: 98559
+    - path: data/processed/train.csv
+      hash: md5
+      md5: c05a8b91f1a4b2b4cf6cb88ca3c54e66
+      size: 386285
+  train_model:
+    cmd: python src/models/train_model.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 389e1c6fe3d5bb6854a47fce671164af
+      size: 98559
+    - path: data/processed/train.csv
+      hash: md5
+      md5: c05a8b91f1a4b2b4cf6cb88ca3c54e66
+      size: 386285
+    - path: src/models/train_model.py
+      hash: md5
+      md5: d251027e139f42832e3fb2ed2077eab7
+      size: 1933
+    outs:
+    - path: metrics/scores.csv
+      hash: md5
+      md5: 2fe24696e89b2bf648136c82b4c67c86
+      size: 165
+    - path: models
+      hash: md5
+      md5: c404ba2864f9c993ed6ae3c109b2a45b.dir
+      size: 5346999
+      nfiles: 5
