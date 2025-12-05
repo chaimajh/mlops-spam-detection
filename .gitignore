@@ -1,1 +1,39 @@
-/models
+# --- MLOps Clean Repo ---
+
+# DVC cache (never push cache)
+.dvc/cache/
+
+# MLflow local runs (always heavy)
+mlruns/
+mlflow.db
+mlflow/
+
+# Model files generated automatically
+models/
+metrics/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+env/
+venv/
+mlops_env/
+
+# VSCode settings
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Data (DVC will track it, but not Git)
+data/raw/
+data/processed/*.csv
+
+# Logs
+*.log
+
+/metrics_eval
