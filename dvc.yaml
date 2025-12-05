@@ -20,6 +20,7 @@ stages:
   evaluate:
     cmd: python src/models/evaluate.py
     deps:
+    - data/processed/test.csv
     - models/model.pkl
     - models/vectorizer.pkl
     - src/models/evaluate.py

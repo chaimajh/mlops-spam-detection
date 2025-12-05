@@ -45,3 +45,28 @@ stages:
       md5: c78d46aa76ce5e74df51d675b86ee1ac.dir
       size: 218719
       nfiles: 2
+  evaluate:
+    cmd: python src/models/evaluate.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 389e1c6fe3d5bb6854a47fce671164af
+      size: 98559
+    - path: models/model.pkl
+      hash: md5
+      md5: 958cbae7683a4b3c870075cd154c0fca
+      size: 62601
+    - path: models/vectorizer.pkl
+      hash: md5
+      md5: e03ff28a79b8ac8c9f8eaf70c6a84c9b
+      size: 156118
+    - path: src/models/evaluate.py
+      hash: md5
+      md5: fe9e1b0b4f016b7b25bc11b03dc9d201
+      size: 637
+    outs:
+    - path: metrics_eval
+      hash: md5
+      md5: b788a4ad71395cd02c99072008ca6ae9.dir
+      size: 431
+      nfiles: 2
