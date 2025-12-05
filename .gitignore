@@ -37,3 +37,4 @@ data/processed/*.csv
 *.log
 
 /metrics_eval
+/models
